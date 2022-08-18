@@ -82,13 +82,13 @@ function makeRoller(i)
 	
 	var diceInput = $.create("input", $.create("td", row1, false, {"width": "45px"}), {"type": "text"}, {"width": "100%"});
 	diceInputs.push(diceInput);
-	if (diceVals !== null)
+	if (diceVals !== null && diceVals.length > i)
 		diceInput.value = diceVals[i];
 	
 	$.create("td", row1, {"innerHTML": "Reroll Sixes:"}, {"width": "75px"});
 	var ruleInput = $.create("input", $.create("td", row1, false, {"width": "10px"}), {"type": "checkbox"}, {"width": "10px"});
 	ruleInputs.push(ruleInput);
-	if (ruleVals !== null)
+	if (ruleVals !== null && ruleVals.length > i)
 		ruleInput.checked = (ruleVals[i] === 'true');
 	
 	var roll = $.create("td", row1, {"innerHTML": "<input type=\"button\" value=\"Roll\"/>"});
@@ -96,7 +96,7 @@ function makeRoller(i)
 	var label = $.create("td", row2, {"innerHTML": "Label:"});
 	var labelInput = $.create("input", $.create("td", row2, {"colSpan": 4}), {"type": "text"}, {"width": "100%"});
 	labelInputs.push(labelInput);
-	if (labelVals !== null)
+	if (labelVals !== null && labelVals.length > i)
 		labelInput.value = labelVals[i];
 	
 	roll.addEventListener("click", makeRoll(diceInput, labelInput, ruleInput), false);
