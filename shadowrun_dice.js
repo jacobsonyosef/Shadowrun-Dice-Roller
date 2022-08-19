@@ -30,23 +30,23 @@ function WriteData()
 	for (var i = 0; i < diceInputs.length; i++)
 	{
 		dies.push(diceInputs[i].value);
-		console.log("added " + diceInputs[i].value);
+		//console.log("added " + diceInputs[i].value);
 
 		rules.push(ruleInputs[i].checked);
-		console.log("added " + ruleInputs[i].checked);
+		//console.log("added " + ruleInputs[i].checked);
 
 		labels.push(labelInputs[i].value);
-		console.log("added " + labelInputs[i].value);
+		//console.log("added " + labelInputs[i].value);
 	}
 	
-	for (var i = 0; i < dies.length; i++)
-		console.log(dies[i]);	
+	// for (var i = 0; i < dies.length; i++)
+		// console.log(dies[i]);	
 	
-	for (var i = 0; i < rules.length; i++)
-		console.log(rules[i]);	
+	// for (var i = 0; i < rules.length; i++)
+		// console.log(rules[i]);	
 	
-	for (var i = 0; i < labels.length; i++)
-		console.log(labels[i]);
+	// for (var i = 0; i < labels.length; i++)
+		// console.log(labels[i]);
 	
 	localStorage.setItem("diceVals", JSON.stringify(dies));
 	localStorage.setItem("ruleVals", JSON.stringify(rules));
@@ -89,7 +89,7 @@ function makeRoller(i)
 	var ruleInput = $.create("input", $.create("td", row1, false, {"width": "10px"}), {"type": "checkbox"}, {"width": "10px"});
 	ruleInputs.push(ruleInput);
 	if (ruleVals !== null && ruleVals.length > i)
-		ruleInput.checked = (ruleVals[i] === 'true');
+		ruleInput.checked = ruleVals[i];
 	
 	var roll = $.create("td", row1, {"innerHTML": "<input type=\"button\" value=\"Roll\"/>"});
 	var row2 = $.create("tr", table);
